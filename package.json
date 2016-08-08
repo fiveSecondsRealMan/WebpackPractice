@@ -1,0 +1,33 @@
+{
+  "name": "webpack_practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run_webpack": "set NODE_ENV=dev&&babel-node webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiveSecondsRealMan/WebpackPractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fiveSecondsRealMan/WebpackPractice/issues"
+  },
+  "homepage": "https://github.com/fiveSecondsRealMan/WebpackPractice#readme",
+  "dependencies": {
+    "babel-core": "^6.13.2",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.2.2",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-react": "^6.0.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
