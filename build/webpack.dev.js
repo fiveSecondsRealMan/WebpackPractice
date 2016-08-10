@@ -24,14 +24,22 @@ let domain = protocol + host + ':' + port;
 
 let devWebpackConfig = Object.assign({}, webpackConfig);
 
+devWebpackConfig.entry.app.unshift('webpack-dev-server/client?' + domain);
+
 // 输出文件名
 devWebpackConfig.output.filename = 'bundle.js';
 
 // 静态资源目录
-devWebpackConfig.output.publicPath = '/';
+devWebpackConfig.output.publicPath = domain + '/';
 
 // 热替换
-devWebpackConfig.devServer = { hot: true };
+devWebpackConfig.devServer = {
+  hot: true,
+  inline: true,
+  historyApiFallback: true,
+  contentBase: './dist',
+  historyApiFallback: true
+};
 
 // 断点调试
 devWebpackConfig.debug = true;
@@ -46,22 +54,10 @@ devWebpackConfig
     loader: 'eslint',
     exclude: /node_modules/
   });
-
-devWebpackConfig.eslint = { configFile: '../.eslintrc.js' };  
+devWebpackConfig.eslint = { configFile: '../.eslintrc.js' };
 
 (new WebpackDevServer(
-  webpack(devWebpackConfig),
-  {
-    hot: true,
-    inline: true,
-    compress: true,
-    stats: {
-      colors: true,
-      chunks: false,
-      children: false
-    },
-    historyApiFallback: true
-   }
+  webpack(devWebpackConfig)
 )).listen(port, host, () => {
   console.log('server is runing');
 });

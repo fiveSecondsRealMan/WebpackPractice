@@ -4,18 +4,23 @@
 
 'use strict';
 
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config');
+import webpack from 'webpack';
+import webpackConfig from './webpack.config';
 
-var distWebpackConfig = Object.assign({}, webpackConfig);
-distWebpackConfig.output.filename = 'xx.js';
-console.log(distWebpackConfig);
-// distWebpackConfig.plugins.push(
-//   new webpack.optimize.UglifyJsPlugin({
-//     compress: {
-//       warning: true
-//     }
-//   })
-// );
+let distWebpackConfig = Object.assign({}, webpackConfig);
+distWebpackConfig.output.filename = 'bundle.js';
 
-//new webpack(distWebpackConfig);
+distWebpackConfig.plugins.push(
+  new webpack.optimize.NoErrorsPlugin()
+);
+distWebpackConfig.plugins.push(
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warning: true
+    }
+  })
+);
+
+webpack(distWebpackConfig, { p: true }, (err, stat) => {
+  console.log(err);
+});

@@ -4,15 +4,10 @@
 
 'use strict';
 
-// import path from 'path';
-//
-// import webpack from 'webpack';
-// import HtmlPlugin from 'html-webpack-plugin';
-// import ExtractTextPlugin from 'extract-text-webpack-plugin';
-var path = require('path');
-var webpack = require('webpack');
-var HtmlPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 /**
  路径

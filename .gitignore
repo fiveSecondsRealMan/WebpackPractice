@@ -1,4 +1,5 @@
 node_modules/
 .git/
 .idea/
-*.log.**
+dist/
+*.log
